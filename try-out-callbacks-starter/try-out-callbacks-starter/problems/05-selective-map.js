@@ -42,14 +42,17 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
 - How many times are you calling each callback function?
 *******************************************************************************/
 
-let selectiveMap = function() {
-
+let selectiveMap = function (array, filterCB, mapCB) {
+  let newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (filterCB(array[i], i, array)) {
+      newArray.push(mapCB(array[i], i, array));
+    } else {
+      newArray.push(array[i]);
+    }
+  }
+  return newArray;
 };
-
-
-
-
-
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 module.exports = selectiveMap;

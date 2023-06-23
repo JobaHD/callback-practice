@@ -27,14 +27,18 @@ console.log(result4); // true
 
 *******************************************************************************/
 
-let exactly = function() {
-
+let exactly = function (array, n, cb) {
+  let trueCount = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (cb(array[i])) {
+      trueCount++;
+    }
+  }
+  if (trueCount === n) {
+    return true;
+  }
+  return false;
 };
-
-
-
-
-
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 module.exports = exactly;
