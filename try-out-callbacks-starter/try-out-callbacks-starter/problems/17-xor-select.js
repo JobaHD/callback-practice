@@ -31,14 +31,11 @@ console.log(
 // [ 'art', 'app', 'buttery' ]
 *******************************************************************************/
 
-let xorSelect = function() {
-
+let xorSelect = function (array, cb1, cb2) {
+  return array.filter((element) => {
+    return (cb1(element) && !cb2(element)) || (!cb1(element) && cb2(element));
+  });
 };
-
-
-
-
-
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 module.exports = xorSelect;

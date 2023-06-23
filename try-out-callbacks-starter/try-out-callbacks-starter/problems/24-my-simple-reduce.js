@@ -34,14 +34,19 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
   optional initial accumulator
 *******************************************************************************/
 
-let mySimpleReduce = function() {
-
+let mySimpleReduce = function (array, cb, initValue) {
+  let result = array[0];
+  let i = 1;
+  if (!initValue === undefined) {
+    result = initValue;
+    i = 0;
+  }
+  while (i < array.length) {
+    result = cb(result, array[i], i, array);
+    i++;
+  }
+  return result;
 };
-
-
-
-
-
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 module.exports = mySimpleReduce;

@@ -22,14 +22,15 @@ console.log(atMost(['boat', 'arc', 'cat', 'car', 'academy'], 1, startsWithA));  
 
 *******************************************************************************/
 
-let atMost = function() {
-
+let atMost = function (array, max, cb) {
+  let trueCount = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (cb(array[i], i)) {
+      trueCount++;
+    }
+  }
+  return trueCount <= max;
 };
-
-
-
-
-
 
 /*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
 module.exports = atMost;
